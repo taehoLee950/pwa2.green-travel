@@ -1,4 +1,4 @@
-import Header from './components/common/header';
+import Header from './components/common/Header.jsx';
 import './App.css';
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <h1>Green Travel</h1>
+      <Header></Header>
     </>
   )
 }

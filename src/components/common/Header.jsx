@@ -4,7 +4,7 @@ function Header() {
 
     return(
       <>
-      
+        <h1>Green Travel</h1>
       </>
     )
 }
