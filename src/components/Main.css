@@ -1,0 +1,6 @@
+.header-img {
+  display: block;
+  margin: 0 auto;
+  width: 100%; /* should set the width of an img tag*/
+  max-width: 600px; /* or over-flow can occur due to original size of an img*/
+}
