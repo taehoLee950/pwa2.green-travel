@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "../App";
 import Main from "../components/Main.jsx";
+import FestivalList from "../components/festivals/FestivalList.jsx";
 
 // nested router 
 const router = createBrowserRouter([ 
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <Main />,
       },
+      {
+        path: '/festivals',
+        element: <FestivalList />
+      }
     ]
   }
 
