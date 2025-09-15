@@ -8,8 +8,10 @@
 .card {
   padding: 10px;
   background-color: white;
-  display: grid;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
   text-align: center;
   border: 1px solid black;
   border-radius: 12px;
