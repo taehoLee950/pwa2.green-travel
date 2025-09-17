@@ -4,13 +4,15 @@ import { useEffect } from "react";
 import { festivalIndex } from "../../store/thunks/festivalThunk.js";
 import { dateFormatter } from "../../utils/dateFormatter.js";
 import { setScrollEventFlg } from "../../store/slices/festivalSlice.js";
-
+import { useNavigate } from "react-router-dom";
+import { setFestivalInfo } from "../../store/slices/festivalShowSlice.js";
 //read
 function FestivalList() {
   const festivalList = useSelector((state) => state.festival.list);
-  // const page = useSelector((state) => state.festival.page);
   const scrollEventFlg = useSelector((state) => state.festival.scrollEventFlg);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate(); //navigate 불러오기
 
   useEffect(() => {
     // local storage에 저장된 날짜를 획득
@@ -45,6 +47,12 @@ function FestivalList() {
     }
   }
 
+  // 상세페이지로 이동
+  function redirectShow(item) {
+    dispatch(setFestivalInfo(item)); //redux에 상세정보 저장
+    navigate(`/festivals/${item.contentid}`); //jsx div.card의 onClick에 들어갈 함수 설정
+  }
+
   return (
     <>
       <div className="container">
@@ -52,7 +60,13 @@ function FestivalList() {
         {festivalList.length > 0 &&
           festivalList.map((item) => {
             return (
-              <div className="card" key={item.contentid}>
+              <div
+                className="card"
+                key={item.contentid}
+                onClick={() => {
+                  redirectShow(item);
+                }}
+              >
                 <div
                   className="card-img"
                   style={{
