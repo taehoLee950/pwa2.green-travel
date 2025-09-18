@@ -82,9 +82,9 @@ function FestivalList() {
             );
           })}
       </div>
-      <button type="button" onClick={addNextPage}>
+      {/* <button type="button" onClick={addNextPage}>
         더보기
-      </button>
+      </button> */}
     </>
   );
 }
