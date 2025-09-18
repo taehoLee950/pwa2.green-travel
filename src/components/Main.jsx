@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import headerImg from "../assets/header-img.png";
 import "./Main.css";
 
 function Main() {
@@ -12,7 +11,7 @@ function Main() {
         onClick={() => {
           navigate("/festivals");
         }}
-        src={headerImg}
+        src="/base/header-img.png"
         alt="메인 이미지"
       />
     </>
