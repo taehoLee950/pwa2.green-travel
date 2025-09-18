@@ -16,7 +16,7 @@ function BeforeInstallPrompt() {
       defferredPrompt.prompt();
       // 사용자의 선택을 기다림 (accepte | dismiss)
       const result = await defferredPrompt.userChoice;
-      if (result === "accepted") {
+      if (result.outcome === "accepted") {
         console.log("사용자가 설치를 수락했습니다.");
       } else {
         console.log("사용자가 설치를 거부했습니다.");
