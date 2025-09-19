@@ -9,6 +9,7 @@ import { setFestivalInfo } from "../../store/slices/festivalShowSlice.js";
 //read
 function FestivalList() {
   const festivalList = useSelector((state) => state.festival.list);
+  console.log(festivalList);
   const scrollEventFlg = useSelector((state) => state.festival.scrollEventFlg);
   const dispatch = useDispatch();
 

@@ -3,6 +3,7 @@ import {
   KEY_LOCALSTORAGE_FESTIVAL_LIST,
   KEY_LOCALSTORAGE_FESTIVAL_PAGE,
   KEY_LOCALSTORAGE_CLEAR_DATE,
+  KEY_LOCALSTORAGE_FESTIVAL_STAY_LIST,
 } from "../configs/keys.js";
 
 export const localStorageUtil = {
@@ -17,12 +18,23 @@ export const localStorageUtil = {
   setFestivalList: (data) => {
     localStorage.setItem(KEY_LOCALSTORAGE_FESTIVAL_LIST, JSON.stringify(data));
   },
+  setStayList: (data) => {
+    localStorage.setItem(
+      KEY_LOCALSTORAGE_FESTIVAL_STAY_LIST,
+      JSON.stringify(data)
+    );
+  },
   /**
    * 로컬스토리지 페스티벌 리스트 반환
    * @returns {[]} festivalList
    */
   getFestivalList: () => {
     return JSON.parse(localStorage.getItem(KEY_LOCALSTORAGE_FESTIVAL_LIST));
+  },
+  getStayList: () => {
+    return JSON.parse(
+      localStorage.getItem(KEY_LOCALSTORAGE_FESTIVAL_STAY_LIST)
+    );
   },
   /**
    * 로컬 스토리지에 페스티벌 페이지 번호 저장

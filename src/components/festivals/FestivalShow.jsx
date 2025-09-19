@@ -37,6 +37,15 @@ function FestivalShow() {
             className="show-img"
           />
           <p className="show-addr">{`${festivalInfo.addr1}, ${festivalInfo.addr2}`}</p>
+          <button
+            type="button"
+            className="stayRedirectBtn"
+            onClick={() => navigate("/festivalStays")}
+          >
+            <span className="stayRedirectBtnContent">
+              숙박 찾으러 가기(☞ﾟヮﾟ)☞
+            </span>
+          </button>
         </div>
       )}
     </>

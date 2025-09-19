@@ -19,3 +19,18 @@
 .show-img {
   width: 100%;
 }
+
+.stayRedirectBtn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1f7a0d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.stayRedirectBtn:hover {
+  opacity: 50%;
+}

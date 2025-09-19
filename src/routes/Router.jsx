@@ -3,7 +3,7 @@ import App from "../App";
 import Main from "../components/Main.jsx";
 import FestivalList from "../components/festivals/FestivalList.jsx";
 import FestivalShow from "../components/festivals/FestivalShow.jsx";
-
+import FestivalStayList from "../components/FestivalStayList.jsx";
 // nested router
 const router = createBrowserRouter([
   {
@@ -31,6 +31,10 @@ const router = createBrowserRouter([
         // 최종적으로 얘네는 FestivalShow에서 useParams()로 불려옴.
         path: "/festivals/:id",
         element: <FestivalShow />,
+      },
+      {
+        path: "/festivalStays",
+        element: <FestivalStayList />,
       },
     ],
   },

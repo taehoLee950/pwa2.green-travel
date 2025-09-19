@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { festivalIndex } from "../thunks/festivalThunk.js";
+import { festivalStayIndex } from "../thunks/festivalStayThunk.js";
 import { localStorageUtil } from "../../utils/localStorageUtil.js";
 const festivalSlice = createSlice({
   name: "festivalSlice",
@@ -14,6 +15,9 @@ const festivalSlice = createSlice({
     scrollEventFlg: localStorageUtil.getFestivalScrollFlg()
       ? localStorageUtil.getFestivalScrollFlg()
       : true, // 스크롤 이벤트 디바운싱 제어 플래그
+    stayList: localStorageUtil.getStayList()
+      ? localStorageUtil.getStayList()
+      : [], // 숙박 리스트
   },
   reducers: {
     setScrollEventFlg: (state, action) => {
@@ -34,6 +38,16 @@ const festivalSlice = createSlice({
           state.scrollEventFlg = true;
         } else {
           state.scrollEventFlg = false;
+        }
+      })
+      // 숙박정보 처리용 .addCase
+      .addCase(festivalStayIndex.fulfilled, (state, action) => {
+        if (action.payload.items?.item) {
+          // state 저장
+          state.stayList = [...state.stayList, ...action.payload.items.item];
+          state.page = action.payload.pageNo;
+          // localstroge 저장
+          localStorageUtil.setStayList(state.stayList);
         }
       })
       .addMatcher(
