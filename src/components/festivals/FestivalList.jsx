@@ -12,7 +12,6 @@ function FestivalList() {
   console.log(festivalList);
   const scrollEventFlg = useSelector((state) => state.festival.scrollEventFlg);
   const dispatch = useDispatch();
-
   const navigate = useNavigate(); //navigate 불러오기
 
   useEffect(() => {
@@ -49,8 +48,10 @@ function FestivalList() {
   }
 
   // 상세페이지로 이동
+
+  //
   function redirectShow(item) {
-    dispatch(setFestivalInfo(item)); //redux에 상세정보 저장
+    // dispatch(setFestivalInfo(item)); //redux에 상세정보 저장
     navigate(`/festivals/${item.contentid}`); //jsx div.card의 onClick에 들어갈 함수 설정
   }
 

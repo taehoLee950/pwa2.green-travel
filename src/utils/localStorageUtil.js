@@ -1,9 +1,14 @@
 import {
+  // festvial 관련 key
   KEY_LOCALSTORAGE_FESTIVAL_FLG,
   KEY_LOCALSTORAGE_FESTIVAL_LIST,
   KEY_LOCALSTORAGE_FESTIVAL_PAGE,
   KEY_LOCALSTORAGE_CLEAR_DATE,
-  KEY_LOCALSTORAGE_FESTIVAL_STAY_LIST,
+
+  // 숙박 관련 key
+  KEY_LOCALSTORAGE_STAY_FLG,
+  KEY_LOCALSTORAGE_STAY_LIST,
+  KEY_LOCALSTORAGE_STAY_PAGE,
 } from "../configs/keys.js";
 
 export const localStorageUtil = {
@@ -19,10 +24,7 @@ export const localStorageUtil = {
     localStorage.setItem(KEY_LOCALSTORAGE_FESTIVAL_LIST, JSON.stringify(data));
   },
   setStayList: (data) => {
-    localStorage.setItem(
-      KEY_LOCALSTORAGE_FESTIVAL_STAY_LIST,
-      JSON.stringify(data)
-    );
+    localStorage.setItem(KEY_LOCALSTORAGE_STAY_LIST, JSON.stringify(data));
   },
   /**
    * 로컬스토리지 페스티벌 리스트 반환
@@ -32,9 +34,7 @@ export const localStorageUtil = {
     return JSON.parse(localStorage.getItem(KEY_LOCALSTORAGE_FESTIVAL_LIST));
   },
   getStayList: () => {
-    return JSON.parse(
-      localStorage.getItem(KEY_LOCALSTORAGE_FESTIVAL_STAY_LIST)
-    );
+    return JSON.parse(localStorage.getItem(KEY_LOCALSTORAGE_STAY_LIST));
   },
   /**
    * 로컬 스토리지에 페스티벌 페이지 번호 저장
@@ -81,10 +81,3 @@ export const localStorageUtil = {
     return localStorage.getItem(KEY_LOCALSTORAGE_CLEAR_DATE);
   },
 };
-//  역할 중심, 함수에 여러가지 기능이 추가되어 하나의 역할을 수행
-//   setLocalStorage: (name, data) => {
-//     localStorage.setItem(name, JSON.stringify(data));
-//   },
-//   getLocalStorage: (name) => {
-//     return localStorage.getItem(name);
-//   },

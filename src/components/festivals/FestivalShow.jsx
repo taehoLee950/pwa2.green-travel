@@ -40,7 +40,7 @@ function FestivalShow() {
           <button
             type="button"
             className="stayRedirectBtn"
-            onClick={() => navigate("/festivalStays")}
+            onClick={() => navigate("/stays")}
           >
             <span className="stayRedirectBtnContent">
               숙박 찾으러 가기(☞ﾟヮﾟ)☞
