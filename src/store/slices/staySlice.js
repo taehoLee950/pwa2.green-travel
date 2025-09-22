@@ -6,8 +6,12 @@ const staySlice = createSlice({
   name: "staySlice",
   initialState: {
     list: localStorageUtil.getStayList() ? localStorageUtil.getStayList() : [], // 숙박 리스트
+    currentStay: null, // 현재 선택된 숙박 정보 (상세보기용)
   },
   reducers: {
+    setCurrentStay: (state, action) => {
+      state.currentStay = action.payload;
+    },
     resetStayList: (state) => {
       state.list = [];
       localStorageUtil.setStayList(state.list);
@@ -38,4 +42,5 @@ const staySlice = createSlice({
   },
 });
 
+export const { setCurrentStay, resetStayList } = staySlice.actions;
 export default staySlice.reducer;

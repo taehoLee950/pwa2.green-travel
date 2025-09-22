@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { festivalIndex } from "../thunks/festivalThunk.js";
-import { stayIndex } from "../thunks/stayThunk.js";
 import { localStorageUtil } from "../../utils/localStorageUtil.js";
+
 const festivalSlice = createSlice({
   name: "festivalSlice",
   initialState: {

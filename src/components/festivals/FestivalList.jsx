@@ -5,7 +5,7 @@ import { festivalIndex } from "../../store/thunks/festivalThunk.js";
 import { dateFormatter } from "../../utils/dateFormatter.js";
 import { setScrollEventFlg } from "../../store/slices/festivalSlice.js";
 import { useNavigate } from "react-router-dom";
-import { setFestivalInfo } from "../../store/slices/festivalShowSlice.js";
+
 //read
 function FestivalList() {
   const festivalList = useSelector((state) => state.festival.list);

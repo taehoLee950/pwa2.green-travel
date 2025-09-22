@@ -4,6 +4,8 @@ import Main from "../components/Main.jsx";
 import FestivalList from "../components/festivals/FestivalList.jsx";
 import FestivalShow from "../components/festivals/FestivalShow.jsx";
 import StayList from "../components/StayList.jsx";
+import StayListShow from "../components/StayListShow.jsx";
+
 // nested router
 const router = createBrowserRouter([
   {
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/stays",
         element: <StayList />,
+      },
+      {
+        path: "/stays/:id",
+        element: <StayListShow />,
       },
     ],
   },
