@@ -5,9 +5,11 @@ import axiosStayConfig from "../../configs/axiosStayConfig";
 const stayIndex = createAsyncThunk(
   "staySlice/StayIndex", // sliceName/purposeName
   // 2개 파라미터 고정 - arg: 외부주입, thunkAPI: redux 관련
-  async (arg, thunkAPI) => {
-    // state 모으기
-    const state = thunkAPI.getState();
+  async ({ areaCode, page }, thunkAPI) => {
+    // areaCode가 없으면 요청하지 않음
+    if (!areaCode) {
+      return { items: { item: [] }, totalCount: 0, pageNo: 1 };
+    }
 
     const url = `${axiosStayConfig.BASE_URL}/searchStay2`;
     //store params in {} for server url
@@ -18,7 +20,8 @@ const stayIndex = createAsyncThunk(
       _type: axiosStayConfig.TYPE,
       arrange: axiosStayConfig.ARRANGE,
       numOfRows: axiosStayConfig.NUM_OF_ROWS,
-      pageNo: state.festival.page,
+      pageNo: page, // 인자로 받은 page 번호 사용
+      areaCode: areaCode, // 지역 코드로 검색
     };
 
     const response = await axios.get(url, { params });

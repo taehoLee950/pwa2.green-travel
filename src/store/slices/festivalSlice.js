@@ -15,10 +15,17 @@ const festivalSlice = createSlice({
     scrollEventFlg: localStorageUtil.getFestivalScrollFlg()
       ? localStorageUtil.getFestivalScrollFlg()
       : true, // 스크롤 이벤트 디바운싱 제어 플래그
+    selectedAreaCode: null, // 선택된 지역 코드
   },
   reducers: {
     setScrollEventFlg: (state, action) => {
       state.scrollEventFlg = action.payload;
+    },
+    setSelectedAreaCode: (state, action) => {
+      state.selectedAreaCode = action.payload;
+    },
+    clearSelectedAreaCode: (state) => {
+      state.selectedAreaCode = null;
     },
   },
 
@@ -52,5 +59,6 @@ const festivalSlice = createSlice({
       );
   },
 });
-export const { setScrollEventFlg } = festivalSlice.actions;
+export const { setScrollEventFlg, setSelectedAreaCode, clearSelectedAreaCode } =
+  festivalSlice.actions;
 export default festivalSlice.reducer;

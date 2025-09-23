@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 //read
 function FestivalList() {
   const festivalList = useSelector((state) => state.festival.list);
-  console.log(festivalList);
+  console.log(`API 리턴값:${festivalList}`);
   const scrollEventFlg = useSelector((state) => state.festival.scrollEventFlg);
   const dispatch = useDispatch();
   const navigate = useNavigate(); //navigate 불러오기

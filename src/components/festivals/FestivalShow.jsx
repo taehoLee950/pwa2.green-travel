@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { dateFormatter } from "../../utils/dateFormatter.js";
 import { useEffect } from "react";
 import { setFestivalInfo } from "../../store/slices/festivalShowSlice.js";
+import { setSelectedAreaCode } from "../../store/slices/festivalSlice.js";
 
 function FestivalShow() {
   const params = useParams(); // segment param 다 가져오기
@@ -40,7 +41,10 @@ function FestivalShow() {
             <button
               type="button"
               className="stayRedirectBtn"
-              onClick={() => navigate("/stays")}
+              onClick={() => {
+                dispatch(setSelectedAreaCode(item.areacode));
+                navigate("/stays");
+              }}
             >
               <span className="stayRedirectBtnContent">숙박 알아보기</span>
             </button>

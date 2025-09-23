@@ -9,6 +9,7 @@
   margin: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  position: relative;
 }
 
 .stayListShowCard {
@@ -30,4 +31,22 @@
   font-size: 1.2em;
   font-weight: bold;
   color: #333;
+}
+
+.stayListShowBackBtn {
+  max-width: fit-content;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+.stayListShowBackBtn:hover {
+  opacity: 50%;
 }
