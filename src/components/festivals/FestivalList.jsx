@@ -15,12 +15,6 @@ function FestivalList() {
   const navigate = useNavigate(); //navigate 불러오기
 
   useEffect(() => {
-    // local storage에 저장된 날짜를 획득
-    // 저장된 날짜 없으면 local storage에 현재 날짜 저장
-    // 저장된 날짜 있으면 아래 처리 속행
-    // 오늘 날짜랑 비교
-    //  과거일시 local storage및 state 초기화
-    // 아직 과거가 아니면 처리 속행
     window.addEventListener("scroll", addNextPage);
 
     if (festivalList.length === 0) {
@@ -33,9 +27,8 @@ function FestivalList() {
     };
   }, []);
 
-  // add next page fn
+  // API 추가 요청
   function addNextPage() {
-    // scroll process
     const docHeight = document.documentElement.scrollHeight; //문서의 Y축 총 길이
     const winHeight = window.innerHeight; // 윈도우의 Y축 총 길이
     const nowHeight = Math.ceil(window.scrollY); // 현재 스크롤의 Y축 위치
@@ -48,11 +41,9 @@ function FestivalList() {
   }
 
   // 상세페이지로 이동
-
-  //
+  // jsx영역 onClick()에 들어갈 예정인 함수.
   function redirectShow(item) {
-    // dispatch(setFestivalInfo(item)); //redux에 상세정보 저장
-    navigate(`/festivals/${item.contentid}`); //jsx div.card의 onClick에 들어갈 함수 설정
+    navigate(`/festivals/${item.contentid}`);
   }
 
   return (

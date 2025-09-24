@@ -6,17 +6,22 @@ import { useNavigate } from "react-router-dom";
 import { setCurrentStay, resetStayList } from "../store/slices/staySlice.js";
 
 function FestivalStayList() {
-  const dispatch = useDispatch();
+  // state + reducer + navigate 읽어오기
   const {
     list: stayList,
     pageNo,
     totalCount,
     isLoading,
   } = useSelector((state) => state.stay);
-  const { selectedAreaCode } = useSelector((state) => state.festival);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const numOfRows = 12; // 설정 파일에 있는 값
+  // 클릭한 축제의 지역코드 state를 festivalSlice에 구조분해로 생성 (실제론 slice 파일에 없음)
+  const { selectedAreaCode } = useSelector((state) => state.festival);
+
+  // 가져온 서버의 데이터 수를 기반으로 페이지 나누기
+  // 이 때 numOfRows는 axiosConfig의 값과 동일해야 함. (출력 갯수 지정값 = 미리 지정한 불러오기로 한 갯수값)
+  const numOfRows = 12;
   const totalPages = Math.ceil(totalCount / numOfRows);
 
   // 1. FestivalShow에서 지역(areacode)을 선택했을 때, 해당 지역의 1페이지 데이터 불러오기

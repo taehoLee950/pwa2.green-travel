@@ -2,21 +2,24 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./FestivalShow.css";
 import { useDispatch, useSelector } from "react-redux";
 import { dateFormatter } from "../../utils/dateFormatter.js";
-import { useEffect } from "react";
 import { setFestivalInfo } from "../../store/slices/festivalShowSlice.js";
 import { setSelectedAreaCode } from "../../store/slices/festivalSlice.js";
 
 function FestivalShow() {
-  const params = useParams(); // segment param 다 가져오기
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
+  // 파라미터 + 스토어 조회
+  const params = useParams();
   const festivalInfo = useSelector((state) => state.festivalShow.festivalInfo);
   const festivalList = useSelector((state) => state.festival.list);
   const item = festivalList.find((item) => params.id === item.contentid);
+  const dispatch = useDispatch();
 
+  // navigate 호출
+  const navigate = useNavigate();
+
+  // 상세 페이지 state를 FestivalList 클릭 된 요소로 변경
   dispatch(setFestivalInfo(item));
-  useEffect(() => {}, []);
+
+  // 되돌아가기 버튼 함수
   function redirectBack() {
     navigate(-1);
   }

@@ -5,7 +5,7 @@ import axiosStayConfig from "../../configs/axiosStayConfig";
 const stayIndex = createAsyncThunk(
   "staySlice/StayIndex", // sliceName/purposeName
   // 2개 파라미터 고정 - arg: 외부주입, thunkAPI: redux 관련
-  async ({ areaCode, page }, thunkAPI) => {
+  async ({ areaCode, page }) => {
     // areaCode가 없으면 요청하지 않음
     if (!areaCode) {
       return { items: { item: [] }, totalCount: 0, pageNo: 1 };
