@@ -1,4 +1,18 @@
-1. install multiple libraries at once router, redux, redux-thunk
+**주제**
+공공API와 PWA를 활용한 여행지 및 인근 숙박업 소개 사이트
+
+**주요 부분**
+React thunk를 이용하여 API를 비동기 처리
+
+Router를 이용하여 상세 페이지 구현
+
+PWA를 활용하여 앱 형태로 제공 (백엔드 미구현으로 인해 로컬스토리지 외 저장이 불가)
+
+
+
+
+
+**여러 라이브러리를 한번에 설치**
    'npm i react-router-dom @reduxjs/toolkit react-redux redux-thunk axios'
 
 - check in package.json if installation was sucessful.
